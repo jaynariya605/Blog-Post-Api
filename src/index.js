@@ -7,7 +7,7 @@ const Post = require('./resolvers/Post')
 const User = require('./resolvers/User')
 const Comment = require('./resolvers/Comment')
 const Subscription = require('./resolvers/Subscription')
-const { PrismaClient } = require('@prisma/client')
+const { PrismaClient } = require('./generated/client')
 const express = require('express')
 
 const app = express()
