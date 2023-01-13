@@ -164,7 +164,7 @@ const config = {
     "binaryTargets": [
       {
         "fromEnvVar": null,
-        "value": "debian-openssl-1.1.x"
+        "value": "linux-musl"
       }
     ],
     "previewFeatures": [
@@ -201,7 +201,7 @@ const PrismaClient = getPrismaClient(config)
 exports.PrismaClient = PrismaClient
 Object.assign(exports, Prisma)
 
-path.join(__dirname, "libquery_engine-debian-openssl-1.1.x.so.node");
-path.join(process.cwd(), "..\\src\\generated\\client\\libquery_engine-debian-openssl-1.1.x.so.node")
+path.join(__dirname, "libquery_engine-linux-musl.so.node");
+path.join(process.cwd(), "..\\src\\generated\\client\\libquery_engine-linux-musl.so.node")
 path.join(__dirname, "schema.prisma");
 path.join(process.cwd(), "..\\src\\generated\\client\\schema.prisma")
