@@ -2,8 +2,7 @@ const { GraphQLError } = require('graphql')
 const jwt = require('jsonwebtoken')
 
 const getUserId = (request, requireAuth = true) => {
-    const header = request.request ?  request.request.headers.get('authorization')
-    : request.connection.context.Authorization
+    const header = request.body.variables['Authorization']
     if (header) {
         const token = header.replace('Bearer ','')
         const decoded = jwt.verify(token, 'thisismysecrate')

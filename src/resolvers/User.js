@@ -9,8 +9,22 @@ const User = {
             return null
         }
     },
-    posts:  (parent, args, {prisma}, info)=>{
-        return parent.posts.filter((post)=>post.published)
+    posts: async (parent, args, {prisma}, info)=>{
+        return await prisma.post.findMany({
+            where:{
+                authorId: parent.id,
+                published: true
+            }
+        }).catch((e)=>{
+            return Promise.reject(new Error('Erroe in fetching posts of post'))
+        })
+    },
+    comments: async (parent, args, {prisma}, info)=>{
+        return await prisma.comment.findMany({
+            where:{authorId: parent.id}
+        }).catch((e)=>{
+            return Promise.reject(new Error('Erroe in fetching comments of post'))
+        })
     }
 }
 

@@ -6,10 +6,6 @@ const createComment = async (paren,{data}, {prisma, pubsub, request}, info)=>{
     await prisma.post.findUnique({
         where:{
             id:data.postId
-        },
-        include:{
-            author:true,
-            post:true
         }
     }).then((post)=>{
         if(!post.published){
@@ -22,10 +18,6 @@ const createComment = async (paren,{data}, {prisma, pubsub, request}, info)=>{
         data:{
             ...data,
             authorId
-        },
-        include:{
-            author:true,
-            post:true
         }
     }).then((comment)=>{
         pubsub.publish(`comment ${data.postId}`, { 
@@ -51,10 +43,6 @@ const deleteComment = async (parent, { id }, {prisma, pubsub, request})=>{
         where:{
             id,
             authorId
-        },
-        include:{
-            author:true,
-            post:true
         }
     }).then((comment)=>{
         pubsub.publish(`comment ${comment.postId}`, { 

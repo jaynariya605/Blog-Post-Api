@@ -4,10 +4,6 @@ const{ getUserId } = require('../utils/getUserId')
 const Query = {
     users: async (parent, args, {prisma}, info)=>{
         const users = await prisma.user.findMany({
-            include: {
-                posts: true,
-                comments: true
-            }
         }).catch((e)=>{
             return Promise.reject(new GraphQLError(e))
         })
@@ -17,10 +13,6 @@ const Query = {
         const posts = await prisma.post.findMany({
             take,
             skip,
-            include: {
-                author: true,
-                comments: true // Return all fields
-            },
             where:{
                 
                 AND:[{
@@ -45,10 +37,6 @@ const Query = {
     },
     comments: async (parent, args, {prisma}, info)=> {
         const comments = await prisma.comment.findMany({
-            include:{
-                author: true,
-                post: true
-            }
         }).catch((e)=>{
             return Promise.reject(new GraphQLError(e))
         })
@@ -65,10 +53,6 @@ const Query = {
                     authorId
                 }]
             },
-            include:{
-                comments:true,
-                author:true
-            }
         }).catch((e)=>{
             return Promise.reject(new GraphQLError(e))
         })
@@ -80,10 +64,6 @@ const Query = {
         return await prisma.user.findUnique({
             where:{
                 id: userId
-            },
-            include:{
-                posts:true,
-                comments:true
             }
         }).catch((e)=>{
             return Promise.reject(new GraphQLError('User Not Found!!'))
@@ -106,10 +86,6 @@ const Query = {
                         }
                     }]
                 }]
-            },
-            include:{
-                author:true,
-                comments:true
             }
         }).then((post)=>{
             pubsub.publish(`myPost ${post.authorId}`,{

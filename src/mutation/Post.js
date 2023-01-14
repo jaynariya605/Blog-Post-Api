@@ -40,10 +40,6 @@ const updatePost = async (parent, { id, data }, {prisma, pubsub, request})=>{
         where:{
             id,
             authorId
-        },
-        include:{
-            author:true,
-            comments:true
         }
     }).catch((e)=>{
         return Promise.reject(new GraphQLError('Post Does not exists'))
@@ -54,11 +50,7 @@ const updatePost = async (parent, { id, data }, {prisma, pubsub, request})=>{
             id,
             authorId
         },
-        data,
-        include:{
-            author:true,
-            comments:true
-        }
+        data
     }).then((post)=>{
         if(originalPost.published && !post.published) {
             
@@ -113,10 +105,6 @@ const deletePost = async (parent, {id}, {prisma, pubsub, request})=>{
         where:{
             id,
             authorId
-        },
-        include:{
-            author:true,
-            comments:true
         }
     }).catch((e)=>{
         return Promise.reject(new GraphQLError(e.meta.cause || 'Unable to delete post'))

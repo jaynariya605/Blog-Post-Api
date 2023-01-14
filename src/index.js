@@ -8,16 +8,17 @@ const User = require('./resolvers/User')
 const Comment = require('./resolvers/Comment')
 const Subscription = require('./resolvers/Subscription')
 const { PrismaClient } = require('./generated/client')
-const express = require('express')
-
-const app = express()
-
+// const express = require('express')
+const  { ApolloServer } = require('@apollo/server');
+const { expressMiddleware } = require('@apollo/server/express4');
+// const app = express()
+const  { startStandaloneServer  } = require('@apollo/server/standalone');
 
 const prisma = new PrismaClient()
 
 const pubsub = createPubSub()
 
-const schema = createSchema({
+const server = new ApolloServer({
     typeDefs: fs.readFileSync(
         path.join(__dirname,'schema.graphql'),
         'utf8'
@@ -34,18 +35,19 @@ const schema = createSchema({
     
 })
 
-const yoga = createYoga({ schema, graphqlEndpoint:"/",
-    context: (request)=>{
-        
-        return {
-        prisma,
+startStandaloneServer(server, {
+    context: async ({ req }) => ({ 
+        request:req,
         pubsub,
-        request
-    }}
-})
+        prisma
+    }),
+    listen: { port: 4000 },
+  })
 
-app.use("/",yoga)
 
-app.listen(4000,()=> {
-    console.log('the server is up 4000')
-})
+
+// app.use("/",yoga)
+
+// app.listen(4000,()=> {
+//     console.log('the server is up 4000')
+// })

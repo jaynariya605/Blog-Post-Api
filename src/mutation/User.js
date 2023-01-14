@@ -12,10 +12,6 @@ const createUser = async (parent, {data}, { prisma }, info)=>{
         data:{
             ...data,
             password
-        },
-        include:{
-            posts:true,
-            comments:true
         }
     }).catch((e)=>{
         if(e.code = 'P2002'){
@@ -36,10 +32,6 @@ const deleteUser = async (parent, args, {prisma, request})=>{
     const deletedUser = await prisma.user.delete({
         where:{
             id: userId
-        },
-        include:{
-            posts:true,
-            comments:true
         }
     }).catch((e)=>{
         return Promise.reject(new GraphQLError('User Dose Not Exists'))
@@ -59,11 +51,7 @@ const updateUser = async (parent, {id, data}, {prisma, request}, info)=>{
         where:{
             id: userId
         },
-        data,
-        include:{
-            posts:true,
-            comments:true
-        }
+        data
     }).catch((e)=>{
         return Promise.reject(new GraphQLError("No user Found"))
     })
@@ -79,10 +67,6 @@ const loginUser = async(parent, {email, password},{prisma},info)=>{
     return await prisma.user.findUnique({
         where:{
             email
-        },
-        include:{
-            posts:true,
-            comments:true
         }
     }).then(async (user)=>{
         const isMatch = await bcrypt.compare(password, user.password)
