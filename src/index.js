@@ -69,7 +69,8 @@ const yoga = createYoga({
             prisma,
             request
         }
-    }
+    },
+    graphqlEndpoint:"/"
 })
 
 
