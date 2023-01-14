@@ -168,7 +168,7 @@ const config = {
       },
       {
         "fromEnvVar": null,
-        "value": "debian-openssl-1.1.x"
+        "value": "debian-openssl-3.0.x"
       }
     ],
     "previewFeatures": [
@@ -208,7 +208,7 @@ Object.assign(exports, Prisma)
 path.join(__dirname, "query-engine-windows");
 path.join(process.cwd(), "..\\src\\generated\\client\\query-engine-windows")
 
-path.join(__dirname, "query-engine-debian-openssl-1.1.x");
-path.join(process.cwd(), "..\\src\\generated\\client\\query-engine-debian-openssl-1.1.x")
+path.join(__dirname, "query-engine-debian-openssl-3.0.x");
+path.join(process.cwd(), "..\\src\\generated\\client\\query-engine-debian-openssl-3.0.x")
 path.join(__dirname, "schema.prisma");
 path.join(process.cwd(), "..\\src\\generated\\client\\schema.prisma")
