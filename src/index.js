@@ -63,6 +63,7 @@ const schema = createSchema({
 const yoga = createYoga({
     schema,
     context: (request)=>{
+        console.log(1)
         return{
             pubsub,
             prisma,
@@ -74,6 +75,6 @@ const yoga = createYoga({
 
 app.use("/",yoga)
 
-app.listen(4000,()=> {
+app.listen(process.env.PORT|| 4000,()=> {
     console.log('the server is up 4000')
 })
