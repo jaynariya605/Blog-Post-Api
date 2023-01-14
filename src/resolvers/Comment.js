@@ -15,8 +15,8 @@ const Comment = {
     post:async (parent, args, {prisma}, info)=> {
         return await prisma.post.findUnique({
             where: {
-                id : parent.id,
-                published:true
+                id : parent.postId,
+               published:true 
             }
         }).then((post)=>{
             return post
