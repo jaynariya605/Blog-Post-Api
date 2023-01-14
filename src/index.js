@@ -8,46 +8,72 @@ const User = require('./resolvers/User')
 const Comment = require('./resolvers/Comment')
 const Subscription = require('./resolvers/Subscription')
 const { PrismaClient } = require('./generated/client')
-// const express = require('express')
+const express = require('express')
 const  { ApolloServer } = require('@apollo/server');
 const { expressMiddleware } = require('@apollo/server/express4');
-// const app = express()
+const app = express()
 const  { startStandaloneServer  } = require('@apollo/server/standalone');
 
 const prisma = new PrismaClient()
 
 const pubsub = createPubSub()
 
-const server = new ApolloServer({
-    typeDefs: fs.readFileSync(
-        path.join(__dirname,'schema.graphql'),
-        'utf8'
-    ),
-    resolvers: {
-        Query ,
-        Mutation ,
-        Subscription,
-        Post ,
-        User ,
-        Comment 
+// const server = new ApolloServer({
+//     typeDefs: fs.readFileSync(
+//         path.join(__dirname,'schema.graphql'),
+//         'utf8'
+//     ),
+//     resolvers: {
+//         Query ,
+//         Mutation ,
+//         Subscription,
+//         Post ,
+//         User ,
+//         Comment 
         
-    }
+//     }
     
+// })
+
+// startStandaloneServer(server, {
+//     context: async ({ req }) => ({ 
+//         request:req,
+//         pubsub,
+//         prisma
+//     }),
+//     listen: { port: 4000 },
+//   })
+
+const schema = createSchema({
+    typeDefs: fs.readFileSync(
+                path.join(__dirname,'schema.graphql'),
+                'utf8'
+            ),
+            resolvers: {
+                Query ,
+                Mutation ,
+                Subscription,
+                Post ,
+                User ,
+                Comment 
+                
+            }
 })
 
-startStandaloneServer(server, {
-    context: async ({ req }) => ({ 
-        request:req,
-        pubsub,
-        prisma
-    }),
-    listen: { port: 4000 },
-  })
+const yoga = createYoga({
+    schema,
+    context: (request)=>{
+        return{
+            pubsub,
+            prisma,
+            request
+        }
+    }
+})
 
 
+app.use("/",yoga)
 
-// app.use("/",yoga)
-
-// app.listen(4000,()=> {
-//     console.log('the server is up 4000')
-// })
+app.listen(4000,()=> {
+    console.log('the server is up 4000')
+})
