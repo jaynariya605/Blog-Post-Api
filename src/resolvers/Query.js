@@ -91,6 +91,7 @@ const Query = {
             pubsub.publish(`myPost ${post.authorId}`,{
                 myPost: post
             })
+            return post
         }).catch((e)=>{
             return Promise.reject(new GraphQLError('Unable to fetch posts'))
         })
