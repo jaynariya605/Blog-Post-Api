@@ -1,5 +1,5 @@
 const { getUserId } = require('../utils/getUserId')
-const { posts } = require('./Query')
+
 const User = {
     email:(parent, args, {request}, info)=>{
         const userId = getUserId(request, false)
