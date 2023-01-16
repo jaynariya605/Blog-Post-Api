@@ -10,7 +10,7 @@ const User = {
         }
     },
     posts: async (parent, args, {prisma, request}, info)=>{
-        const userId = getUserId(request)
+        const userId = getUserId(request, false)
         return await prisma.post.findMany({
             where:{
                 authorId: parent.id,
