@@ -9,11 +9,16 @@ const User = {
             return null
         }
     },
-    posts: async (parent, args, {prisma}, info)=>{
+    posts: async (parent, args, {prisma, request}, info)=>{
+        const userId = getUserId(request)
         return await prisma.post.findMany({
             where:{
                 authorId: parent.id,
-                published: true
+                OR: [{
+                    published: true
+                },{
+                    authorId: userId
+                }]
             }
         }).catch((e)=>{
             return Promise.reject(new Error('Erroe in fetching posts of post'))
