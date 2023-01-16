@@ -18,64 +18,64 @@ const prisma = new PrismaClient()
 
 const pubsub = createPubSub()
 
-// const server = new ApolloServer({
-//     typeDefs: fs.readFileSync(
-//         path.join(__dirname,'schema.graphql'),
-//         'utf8'
-//     ),
-//     resolvers: {
-//         Query ,
-//         Mutation ,
-//         Subscription,
-//         Post ,
-//         User ,
-//         Comment 
+const server = new ApolloServer({
+    typeDefs: fs.readFileSync(
+        path.join(__dirname,'schema.graphql'),
+        'utf8'
+    ),
+    resolvers: {
+        Query ,
+        Mutation ,
+        Subscription,
+        Post ,
+        User ,
+        Comment 
         
-//     }
+    }
     
+})
+
+startStandaloneServer(server, {
+    context: async ({ req }) => ({ 
+        request:req,
+        pubsub,
+        prisma
+    }),
+    listen: { port: process.env.PORT || 4000 },
+  })
+
+// const schema = createSchema({
+//     typeDefs: fs.readFileSync(
+//                 path.join(__dirname,'schema.graphql'),
+//                 'utf8'
+//             ),
+//             resolvers: {
+//                 Query ,
+//                 Mutation ,
+//                 Subscription,
+//                 Post ,
+//                 User ,
+//                 Comment 
+                
+//             }
 // })
 
-// startStandaloneServer(server, {
-//     context: async ({ req }) => ({ 
-//         request:req,
-//         pubsub,
-//         prisma
-//     }),
-//     listen: { port: 4000 },
-//   })
-
-const schema = createSchema({
-    typeDefs: fs.readFileSync(
-                path.join(__dirname,'schema.graphql'),
-                'utf8'
-            ),
-            resolvers: {
-                Query ,
-                Mutation ,
-                Subscription,
-                Post ,
-                User ,
-                Comment 
-                
-            }
-})
-
-const yoga = createYoga({
-    schema,
-    context: (request)=>{
-        console.log(1)
-        return{
-            pubsub,
-            prisma,
-            request
-        }
-    },
-    graphqlEndpoint:"/"
-})
+// const yoga = createYoga({
+//     schema,
+//     context: (request)=>{
+//         console.log(1)
+//         return{
+//             pubsub,
+//             prisma,
+//             request
+//         }
+//     },
+//     graphqlEndpoint:"/"
+// })
 
 
-app.use("/",yoga)
+// app.use("/",yoga)
 
-app.listen(process.env.PORT|| 4000,()=> {
-    console.log('the server is up 4000')
-})
+// app.listen(process.env.PORT|| 4000,()=> {
+//     console.log('the server is up 4000')
+// })
