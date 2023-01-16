@@ -2,7 +2,7 @@ const { GraphQLError } = require('graphql')
 const jwt = require('jsonwebtoken')
 
 const getUserId = (request, requireAuth = true) => {
-    const header =  request.request.headers.get('authorization') 
+    const header =  request.headers['authorization']
       
     if (header) {
         const token = header.replace('Bearer ','')
