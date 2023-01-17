@@ -93,7 +93,9 @@ exports.Prisma.CommentScalarFieldEnum = makeEnum({
   id: 'id',
   text: 'text',
   authorId: 'authorId',
-  postId: 'postId'
+  postId: 'postId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 });
 
 exports.Prisma.PostScalarFieldEnum = makeEnum({
@@ -101,7 +103,9 @@ exports.Prisma.PostScalarFieldEnum = makeEnum({
   title: 'title',
   body: 'body',
   published: 'published',
-  authorId: 'authorId'
+  authorId: 'authorId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 });
 
 exports.Prisma.QueryMode = makeEnum({
@@ -126,7 +130,9 @@ exports.Prisma.UserScalarFieldEnum = makeEnum({
   password: 'password',
   name: 'name',
   age: 'age',
-  id: 'id'
+  id: 'id',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 });
 
 

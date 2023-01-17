@@ -22,6 +22,8 @@ export type User = {
   name: string
   age: number | null
   id: string
+  createdAt: Date
+  updatedAt: Date
 }
 
 /**
@@ -34,6 +36,8 @@ export type Post = {
   body: string
   published: boolean
   authorId: string
+  createdAt: Date
+  updatedAt: Date
 }
 
 /**
@@ -45,6 +49,8 @@ export type Comment = {
   text: string
   authorId: string
   postId: string
+  createdAt: Date
+  updatedAt: Date
 }
 
 
@@ -966,6 +972,8 @@ export namespace Prisma {
     name: string | null
     age: number | null
     id: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type UserMaxAggregateOutputType = {
@@ -974,6 +982,8 @@ export namespace Prisma {
     name: string | null
     age: number | null
     id: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type UserCountAggregateOutputType = {
@@ -982,6 +992,8 @@ export namespace Prisma {
     name: number
     age: number
     id: number
+    createdAt: number
+    updatedAt: number
     _all: number
   }
 
@@ -1000,6 +1012,8 @@ export namespace Prisma {
     name?: true
     age?: true
     id?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type UserMaxAggregateInputType = {
@@ -1008,6 +1022,8 @@ export namespace Prisma {
     name?: true
     age?: true
     id?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type UserCountAggregateInputType = {
@@ -1016,6 +1032,8 @@ export namespace Prisma {
     name?: true
     age?: true
     id?: true
+    createdAt?: true
+    updatedAt?: true
     _all?: true
   }
 
@@ -1117,6 +1135,8 @@ export namespace Prisma {
     name: string
     age: number | null
     id: string
+    createdAt: Date
+    updatedAt: Date
     _count: UserCountAggregateOutputType | null
     _avg: UserAvgAggregateOutputType | null
     _sum: UserSumAggregateOutputType | null
@@ -1146,6 +1166,8 @@ export namespace Prisma {
     id?: boolean
     comments?: boolean | User$commentsArgs
     posts?: boolean | User$postsArgs
+    createdAt?: boolean
+    updatedAt?: boolean
     _count?: boolean | UserCountOutputTypeArgs
   }
 
@@ -2034,6 +2056,8 @@ export namespace Prisma {
     body: string | null
     published: boolean | null
     authorId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type PostMaxAggregateOutputType = {
@@ -2042,6 +2066,8 @@ export namespace Prisma {
     body: string | null
     published: boolean | null
     authorId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type PostCountAggregateOutputType = {
@@ -2050,6 +2076,8 @@ export namespace Prisma {
     body: number
     published: number
     authorId: number
+    createdAt: number
+    updatedAt: number
     _all: number
   }
 
@@ -2060,6 +2088,8 @@ export namespace Prisma {
     body?: true
     published?: true
     authorId?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type PostMaxAggregateInputType = {
@@ -2068,6 +2098,8 @@ export namespace Prisma {
     body?: true
     published?: true
     authorId?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type PostCountAggregateInputType = {
@@ -2076,6 +2108,8 @@ export namespace Prisma {
     body?: true
     published?: true
     authorId?: true
+    createdAt?: true
+    updatedAt?: true
     _all?: true
   }
 
@@ -2163,6 +2197,8 @@ export namespace Prisma {
     body: string
     published: boolean
     authorId: string
+    createdAt: Date
+    updatedAt: Date
     _count: PostCountAggregateOutputType | null
     _min: PostMinAggregateOutputType | null
     _max: PostMaxAggregateOutputType | null
@@ -2190,6 +2226,8 @@ export namespace Prisma {
     authorId?: boolean
     comments?: boolean | Post$commentsArgs
     author?: boolean | UserArgs
+    createdAt?: boolean
+    updatedAt?: boolean
     _count?: boolean | PostCountOutputTypeArgs
   }
 
@@ -3054,6 +3092,8 @@ export namespace Prisma {
     text: string | null
     authorId: string | null
     postId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type CommentMaxAggregateOutputType = {
@@ -3061,6 +3101,8 @@ export namespace Prisma {
     text: string | null
     authorId: string | null
     postId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type CommentCountAggregateOutputType = {
@@ -3068,6 +3110,8 @@ export namespace Prisma {
     text: number
     authorId: number
     postId: number
+    createdAt: number
+    updatedAt: number
     _all: number
   }
 
@@ -3077,6 +3121,8 @@ export namespace Prisma {
     text?: true
     authorId?: true
     postId?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type CommentMaxAggregateInputType = {
@@ -3084,6 +3130,8 @@ export namespace Prisma {
     text?: true
     authorId?: true
     postId?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type CommentCountAggregateInputType = {
@@ -3091,6 +3139,8 @@ export namespace Prisma {
     text?: true
     authorId?: true
     postId?: true
+    createdAt?: true
+    updatedAt?: true
     _all?: true
   }
 
@@ -3177,6 +3227,8 @@ export namespace Prisma {
     text: string
     authorId: string
     postId: string
+    createdAt: Date
+    updatedAt: Date
     _count: CommentCountAggregateOutputType | null
     _min: CommentMinAggregateOutputType | null
     _max: CommentMaxAggregateOutputType | null
@@ -3203,6 +3255,8 @@ export namespace Prisma {
     postId?: boolean
     author?: boolean | UserArgs
     post?: boolean | PostArgs
+    createdAt?: boolean
+    updatedAt?: boolean
   }
 
 
@@ -4035,7 +4089,9 @@ export namespace Prisma {
     id: 'id',
     text: 'text',
     authorId: 'authorId',
-    postId: 'postId'
+    postId: 'postId',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
   };
 
   export type CommentScalarFieldEnum = (typeof CommentScalarFieldEnum)[keyof typeof CommentScalarFieldEnum]
@@ -4046,7 +4102,9 @@ export namespace Prisma {
     title: 'title',
     body: 'body',
     published: 'published',
-    authorId: 'authorId'
+    authorId: 'authorId',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
   };
 
   export type PostScalarFieldEnum = (typeof PostScalarFieldEnum)[keyof typeof PostScalarFieldEnum]
@@ -4083,7 +4141,9 @@ export namespace Prisma {
     password: 'password',
     name: 'name',
     age: 'age',
-    id: 'id'
+    id: 'id',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
   };
 
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
@@ -4105,6 +4165,8 @@ export namespace Prisma {
     id?: UuidFilter | string
     comments?: CommentListRelationFilter
     posts?: PostListRelationFilter
+    createdAt?: DateTimeFilter | Date | string
+    updatedAt?: DateTimeFilter | Date | string
   }
 
   export type UserOrderByWithRelationInput = {
@@ -4115,6 +4177,8 @@ export namespace Prisma {
     id?: SortOrder
     comments?: CommentOrderByRelationAggregateInput
     posts?: PostOrderByRelationAggregateInput
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -4128,6 +4192,8 @@ export namespace Prisma {
     age?: IntNullableFilter | number | null
     comments?: CommentListRelationFilter
     posts?: PostListRelationFilter
+    createdAt?: DateTimeFilter | Date | string
+    updatedAt?: DateTimeFilter | Date | string
   }, "email" | "id">
 
   export type UserOrderByWithAggregationInput = {
@@ -4136,6 +4202,8 @@ export namespace Prisma {
     name?: SortOrder
     age?: SortOrder
     id?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
     _count?: UserCountOrderByAggregateInput
     _avg?: UserAvgOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
@@ -4152,6 +4220,8 @@ export namespace Prisma {
     name?: StringWithAggregatesFilter | string
     age?: IntNullableWithAggregatesFilter | number | null
     id?: UuidWithAggregatesFilter | string
+    createdAt?: DateTimeWithAggregatesFilter | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter | Date | string
   }
 
   export type PostWhereInput = {
@@ -4165,6 +4235,8 @@ export namespace Prisma {
     authorId?: UuidFilter | string
     comments?: CommentListRelationFilter
     author?: XOR<UserRelationFilter, UserWhereInput>
+    createdAt?: DateTimeFilter | Date | string
+    updatedAt?: DateTimeFilter | Date | string
   }
 
   export type PostOrderByWithRelationInput = {
@@ -4175,6 +4247,8 @@ export namespace Prisma {
     authorId?: SortOrder
     comments?: CommentOrderByRelationAggregateInput
     author?: UserOrderByWithRelationInput
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type PostWhereUniqueInput = Prisma.AtLeast<{
@@ -4188,6 +4262,8 @@ export namespace Prisma {
     authorId?: UuidFilter | string
     comments?: CommentListRelationFilter
     author?: XOR<UserRelationFilter, UserWhereInput>
+    createdAt?: DateTimeFilter | Date | string
+    updatedAt?: DateTimeFilter | Date | string
   }, "id">
 
   export type PostOrderByWithAggregationInput = {
@@ -4196,6 +4272,8 @@ export namespace Prisma {
     body?: SortOrder
     published?: SortOrder
     authorId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
     _count?: PostCountOrderByAggregateInput
     _max?: PostMaxOrderByAggregateInput
     _min?: PostMinOrderByAggregateInput
@@ -4210,6 +4288,8 @@ export namespace Prisma {
     body?: StringWithAggregatesFilter | string
     published?: BoolWithAggregatesFilter | boolean
     authorId?: UuidWithAggregatesFilter | string
+    createdAt?: DateTimeWithAggregatesFilter | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter | Date | string
   }
 
   export type CommentWhereInput = {
@@ -4222,6 +4302,8 @@ export namespace Prisma {
     postId?: UuidFilter | string
     author?: XOR<UserRelationFilter, UserWhereInput>
     post?: XOR<PostRelationFilter, PostWhereInput>
+    createdAt?: DateTimeFilter | Date | string
+    updatedAt?: DateTimeFilter | Date | string
   }
 
   export type CommentOrderByWithRelationInput = {
@@ -4231,6 +4313,8 @@ export namespace Prisma {
     postId?: SortOrder
     author?: UserOrderByWithRelationInput
     post?: PostOrderByWithRelationInput
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type CommentWhereUniqueInput = Prisma.AtLeast<{
@@ -4243,6 +4327,8 @@ export namespace Prisma {
     postId?: UuidFilter | string
     author?: XOR<UserRelationFilter, UserWhereInput>
     post?: XOR<PostRelationFilter, PostWhereInput>
+    createdAt?: DateTimeFilter | Date | string
+    updatedAt?: DateTimeFilter | Date | string
   }, "id">
 
   export type CommentOrderByWithAggregationInput = {
@@ -4250,6 +4336,8 @@ export namespace Prisma {
     text?: SortOrder
     authorId?: SortOrder
     postId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
     _count?: CommentCountOrderByAggregateInput
     _max?: CommentMaxOrderByAggregateInput
     _min?: CommentMinOrderByAggregateInput
@@ -4263,6 +4351,8 @@ export namespace Prisma {
     text?: StringWithAggregatesFilter | string
     authorId?: UuidWithAggregatesFilter | string
     postId?: UuidWithAggregatesFilter | string
+    createdAt?: DateTimeWithAggregatesFilter | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter | Date | string
   }
 
   export type UserCreateInput = {
@@ -4273,6 +4363,8 @@ export namespace Prisma {
     id?: string
     comments?: CommentCreateNestedManyWithoutAuthorInput
     posts?: PostCreateNestedManyWithoutAuthorInput
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type UserUncheckedCreateInput = {
@@ -4283,6 +4375,8 @@ export namespace Prisma {
     id?: string
     comments?: CommentUncheckedCreateNestedManyWithoutAuthorInput
     posts?: PostUncheckedCreateNestedManyWithoutAuthorInput
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type UserUpdateInput = {
@@ -4293,6 +4387,8 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     comments?: CommentUpdateManyWithoutAuthorNestedInput
     posts?: PostUpdateManyWithoutAuthorNestedInput
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type UserUncheckedUpdateInput = {
@@ -4303,6 +4399,8 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     comments?: CommentUncheckedUpdateManyWithoutAuthorNestedInput
     posts?: PostUncheckedUpdateManyWithoutAuthorNestedInput
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type UserCreateManyInput = {
@@ -4311,6 +4409,8 @@ export namespace Prisma {
     name: string
     age?: number | null
     id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type UserUpdateManyMutationInput = {
@@ -4319,6 +4419,8 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     age?: NullableIntFieldUpdateOperationsInput | number | null
     id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type UserUncheckedUpdateManyInput = {
@@ -4327,6 +4429,8 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     age?: NullableIntFieldUpdateOperationsInput | number | null
     id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type PostCreateInput = {
@@ -4336,6 +4440,8 @@ export namespace Prisma {
     published: boolean
     comments?: CommentCreateNestedManyWithoutPostInput
     author: UserCreateNestedOneWithoutPostsInput
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type PostUncheckedCreateInput = {
@@ -4345,6 +4451,8 @@ export namespace Prisma {
     published: boolean
     authorId: string
     comments?: CommentUncheckedCreateNestedManyWithoutPostInput
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type PostUpdateInput = {
@@ -4354,6 +4462,8 @@ export namespace Prisma {
     published?: BoolFieldUpdateOperationsInput | boolean
     comments?: CommentUpdateManyWithoutPostNestedInput
     author?: UserUpdateOneRequiredWithoutPostsNestedInput
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type PostUncheckedUpdateInput = {
@@ -4363,6 +4473,8 @@ export namespace Prisma {
     published?: BoolFieldUpdateOperationsInput | boolean
     authorId?: StringFieldUpdateOperationsInput | string
     comments?: CommentUncheckedUpdateManyWithoutPostNestedInput
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type PostCreateManyInput = {
@@ -4371,6 +4483,8 @@ export namespace Prisma {
     body: string
     published: boolean
     authorId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type PostUpdateManyMutationInput = {
@@ -4378,6 +4492,8 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     body?: StringFieldUpdateOperationsInput | string
     published?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type PostUncheckedUpdateManyInput = {
@@ -4386,6 +4502,8 @@ export namespace Prisma {
     body?: StringFieldUpdateOperationsInput | string
     published?: BoolFieldUpdateOperationsInput | boolean
     authorId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type CommentCreateInput = {
@@ -4393,6 +4511,8 @@ export namespace Prisma {
     text: string
     author: UserCreateNestedOneWithoutCommentsInput
     post: PostCreateNestedOneWithoutCommentsInput
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type CommentUncheckedCreateInput = {
@@ -4400,6 +4520,8 @@ export namespace Prisma {
     text: string
     authorId: string
     postId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type CommentUpdateInput = {
@@ -4407,6 +4529,8 @@ export namespace Prisma {
     text?: StringFieldUpdateOperationsInput | string
     author?: UserUpdateOneRequiredWithoutCommentsNestedInput
     post?: PostUpdateOneRequiredWithoutCommentsNestedInput
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type CommentUncheckedUpdateInput = {
@@ -4414,6 +4538,8 @@ export namespace Prisma {
     text?: StringFieldUpdateOperationsInput | string
     authorId?: StringFieldUpdateOperationsInput | string
     postId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type CommentCreateManyInput = {
@@ -4421,11 +4547,15 @@ export namespace Prisma {
     text: string
     authorId: string
     postId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type CommentUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     text?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type CommentUncheckedUpdateManyInput = {
@@ -4433,6 +4563,8 @@ export namespace Prisma {
     text?: StringFieldUpdateOperationsInput | string
     authorId?: StringFieldUpdateOperationsInput | string
     postId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type StringFilter = {
@@ -4485,6 +4617,17 @@ export namespace Prisma {
     none?: PostWhereInput
   }
 
+  export type DateTimeFilter = {
+    equals?: Date | string
+    in?: Enumerable<Date> | Enumerable<string>
+    notIn?: Enumerable<Date> | Enumerable<string>
+    lt?: Date | string
+    lte?: Date | string
+    gt?: Date | string
+    gte?: Date | string
+    not?: NestedDateTimeFilter | Date | string
+  }
+
   export type CommentOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
@@ -4499,6 +4642,8 @@ export namespace Prisma {
     name?: SortOrder
     age?: SortOrder
     id?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type UserAvgOrderByAggregateInput = {
@@ -4511,6 +4656,8 @@ export namespace Prisma {
     name?: SortOrder
     age?: SortOrder
     id?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type UserMinOrderByAggregateInput = {
@@ -4519,6 +4666,8 @@ export namespace Prisma {
     name?: SortOrder
     age?: SortOrder
     id?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type UserSumOrderByAggregateInput = {
@@ -4574,6 +4723,20 @@ export namespace Prisma {
     _max?: NestedStringFilter
   }
 
+  export type DateTimeWithAggregatesFilter = {
+    equals?: Date | string
+    in?: Enumerable<Date> | Enumerable<string>
+    notIn?: Enumerable<Date> | Enumerable<string>
+    lt?: Date | string
+    lte?: Date | string
+    gt?: Date | string
+    gte?: Date | string
+    not?: NestedDateTimeWithAggregatesFilter | Date | string
+    _count?: NestedIntFilter
+    _min?: NestedDateTimeFilter
+    _max?: NestedDateTimeFilter
+  }
+
   export type BoolFilter = {
     equals?: boolean
     not?: NestedBoolFilter | boolean
@@ -4590,6 +4753,8 @@ export namespace Prisma {
     body?: SortOrder
     published?: SortOrder
     authorId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type PostMaxOrderByAggregateInput = {
@@ -4598,6 +4763,8 @@ export namespace Prisma {
     body?: SortOrder
     published?: SortOrder
     authorId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type PostMinOrderByAggregateInput = {
@@ -4606,6 +4773,8 @@ export namespace Prisma {
     body?: SortOrder
     published?: SortOrder
     authorId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type BoolWithAggregatesFilter = {
@@ -4626,6 +4795,8 @@ export namespace Prisma {
     text?: SortOrder
     authorId?: SortOrder
     postId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type CommentMaxOrderByAggregateInput = {
@@ -4633,6 +4804,8 @@ export namespace Prisma {
     text?: SortOrder
     authorId?: SortOrder
     postId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type CommentMinOrderByAggregateInput = {
@@ -4640,6 +4813,8 @@ export namespace Prisma {
     text?: SortOrder
     authorId?: SortOrder
     postId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type CommentCreateNestedManyWithoutAuthorInput = {
@@ -4708,6 +4883,10 @@ export namespace Prisma {
     update?: Enumerable<PostUpdateWithWhereUniqueWithoutAuthorInput>
     updateMany?: Enumerable<PostUpdateManyWithWhereWithoutAuthorInput>
     deleteMany?: Enumerable<PostScalarWhereInput>
+  }
+
+  export type DateTimeFieldUpdateOperationsInput = {
+    set?: Date | string
   }
 
   export type CommentUncheckedUpdateManyWithoutAuthorNestedInput = {
@@ -4862,6 +5041,17 @@ export namespace Prisma {
     not?: NestedUuidFilter | string
   }
 
+  export type NestedDateTimeFilter = {
+    equals?: Date | string
+    in?: Enumerable<Date> | Enumerable<string>
+    notIn?: Enumerable<Date> | Enumerable<string>
+    lt?: Date | string
+    lte?: Date | string
+    gt?: Date | string
+    gte?: Date | string
+    not?: NestedDateTimeFilter | Date | string
+  }
+
   export type NestedStringWithAggregatesFilter = {
     equals?: string
     in?: Enumerable<string>
@@ -4931,6 +5121,20 @@ export namespace Prisma {
     _max?: NestedStringFilter
   }
 
+  export type NestedDateTimeWithAggregatesFilter = {
+    equals?: Date | string
+    in?: Enumerable<Date> | Enumerable<string>
+    notIn?: Enumerable<Date> | Enumerable<string>
+    lt?: Date | string
+    lte?: Date | string
+    gt?: Date | string
+    gte?: Date | string
+    not?: NestedDateTimeWithAggregatesFilter | Date | string
+    _count?: NestedIntFilter
+    _min?: NestedDateTimeFilter
+    _max?: NestedDateTimeFilter
+  }
+
   export type NestedBoolFilter = {
     equals?: boolean
     not?: NestedBoolFilter | boolean
@@ -4948,12 +5152,16 @@ export namespace Prisma {
     id?: string
     text: string
     post: PostCreateNestedOneWithoutCommentsInput
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type CommentUncheckedCreateWithoutAuthorInput = {
     id?: string
     text: string
     postId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type CommentCreateOrConnectWithoutAuthorInput = {
@@ -4972,6 +5180,8 @@ export namespace Prisma {
     body: string
     published: boolean
     comments?: CommentCreateNestedManyWithoutPostInput
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type PostUncheckedCreateWithoutAuthorInput = {
@@ -4980,6 +5190,8 @@ export namespace Prisma {
     body: string
     published: boolean
     comments?: CommentUncheckedCreateNestedManyWithoutPostInput
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type PostCreateOrConnectWithoutAuthorInput = {
@@ -5016,6 +5228,8 @@ export namespace Prisma {
     text?: StringFilter | string
     authorId?: UuidFilter | string
     postId?: UuidFilter | string
+    createdAt?: DateTimeFilter | Date | string
+    updatedAt?: DateTimeFilter | Date | string
   }
 
   export type PostUpsertWithWhereUniqueWithoutAuthorInput = {
@@ -5043,18 +5257,24 @@ export namespace Prisma {
     body?: StringFilter | string
     published?: BoolFilter | boolean
     authorId?: UuidFilter | string
+    createdAt?: DateTimeFilter | Date | string
+    updatedAt?: DateTimeFilter | Date | string
   }
 
   export type CommentCreateWithoutPostInput = {
     id?: string
     text: string
     author: UserCreateNestedOneWithoutCommentsInput
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type CommentUncheckedCreateWithoutPostInput = {
     id?: string
     text: string
     authorId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type CommentCreateOrConnectWithoutPostInput = {
@@ -5074,6 +5294,8 @@ export namespace Prisma {
     age?: number | null
     id?: string
     comments?: CommentCreateNestedManyWithoutAuthorInput
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type UserUncheckedCreateWithoutPostsInput = {
@@ -5083,6 +5305,8 @@ export namespace Prisma {
     age?: number | null
     id?: string
     comments?: CommentUncheckedCreateNestedManyWithoutAuthorInput
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type UserCreateOrConnectWithoutPostsInput = {
@@ -5124,6 +5348,8 @@ export namespace Prisma {
     age?: NullableIntFieldUpdateOperationsInput | number | null
     id?: StringFieldUpdateOperationsInput | string
     comments?: CommentUpdateManyWithoutAuthorNestedInput
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type UserUncheckedUpdateWithoutPostsInput = {
@@ -5133,6 +5359,8 @@ export namespace Prisma {
     age?: NullableIntFieldUpdateOperationsInput | number | null
     id?: StringFieldUpdateOperationsInput | string
     comments?: CommentUncheckedUpdateManyWithoutAuthorNestedInput
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type UserCreateWithoutCommentsInput = {
@@ -5142,6 +5370,8 @@ export namespace Prisma {
     age?: number | null
     id?: string
     posts?: PostCreateNestedManyWithoutAuthorInput
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type UserUncheckedCreateWithoutCommentsInput = {
@@ -5151,6 +5381,8 @@ export namespace Prisma {
     age?: number | null
     id?: string
     posts?: PostUncheckedCreateNestedManyWithoutAuthorInput
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type UserCreateOrConnectWithoutCommentsInput = {
@@ -5164,6 +5396,8 @@ export namespace Prisma {
     body: string
     published: boolean
     author: UserCreateNestedOneWithoutPostsInput
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type PostUncheckedCreateWithoutCommentsInput = {
@@ -5172,6 +5406,8 @@ export namespace Prisma {
     body: string
     published: boolean
     authorId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type PostCreateOrConnectWithoutCommentsInput = {
@@ -5197,6 +5433,8 @@ export namespace Prisma {
     age?: NullableIntFieldUpdateOperationsInput | number | null
     id?: StringFieldUpdateOperationsInput | string
     posts?: PostUpdateManyWithoutAuthorNestedInput
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type UserUncheckedUpdateWithoutCommentsInput = {
@@ -5206,6 +5444,8 @@ export namespace Prisma {
     age?: NullableIntFieldUpdateOperationsInput | number | null
     id?: StringFieldUpdateOperationsInput | string
     posts?: PostUncheckedUpdateManyWithoutAuthorNestedInput
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type PostUpsertWithoutCommentsInput = {
@@ -5225,6 +5465,8 @@ export namespace Prisma {
     body?: StringFieldUpdateOperationsInput | string
     published?: BoolFieldUpdateOperationsInput | boolean
     author?: UserUpdateOneRequiredWithoutPostsNestedInput
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type PostUncheckedUpdateWithoutCommentsInput = {
@@ -5233,12 +5475,16 @@ export namespace Prisma {
     body?: StringFieldUpdateOperationsInput | string
     published?: BoolFieldUpdateOperationsInput | boolean
     authorId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type CommentCreateManyAuthorInput = {
     id?: string
     text: string
     postId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type PostCreateManyAuthorInput = {
@@ -5246,24 +5492,32 @@ export namespace Prisma {
     title: string
     body: string
     published: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type CommentUpdateWithoutAuthorInput = {
     id?: StringFieldUpdateOperationsInput | string
     text?: StringFieldUpdateOperationsInput | string
     post?: PostUpdateOneRequiredWithoutCommentsNestedInput
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type CommentUncheckedUpdateWithoutAuthorInput = {
     id?: StringFieldUpdateOperationsInput | string
     text?: StringFieldUpdateOperationsInput | string
     postId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type CommentUncheckedUpdateManyWithoutCommentsInput = {
     id?: StringFieldUpdateOperationsInput | string
     text?: StringFieldUpdateOperationsInput | string
     postId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type PostUpdateWithoutAuthorInput = {
@@ -5272,6 +5526,8 @@ export namespace Prisma {
     body?: StringFieldUpdateOperationsInput | string
     published?: BoolFieldUpdateOperationsInput | boolean
     comments?: CommentUpdateManyWithoutPostNestedInput
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type PostUncheckedUpdateWithoutAuthorInput = {
@@ -5280,6 +5536,8 @@ export namespace Prisma {
     body?: StringFieldUpdateOperationsInput | string
     published?: BoolFieldUpdateOperationsInput | boolean
     comments?: CommentUncheckedUpdateManyWithoutPostNestedInput
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type PostUncheckedUpdateManyWithoutPostsInput = {
@@ -5287,24 +5545,32 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     body?: StringFieldUpdateOperationsInput | string
     published?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type CommentCreateManyPostInput = {
     id?: string
     text: string
     authorId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type CommentUpdateWithoutPostInput = {
     id?: StringFieldUpdateOperationsInput | string
     text?: StringFieldUpdateOperationsInput | string
     author?: UserUpdateOneRequiredWithoutCommentsNestedInput
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type CommentUncheckedUpdateWithoutPostInput = {
     id?: StringFieldUpdateOperationsInput | string
     text?: StringFieldUpdateOperationsInput | string
     authorId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
 

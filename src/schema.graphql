@@ -67,6 +67,8 @@ type User {
     age: Int
     posts: [Post!]!
     comments: [Comment!]!
+    createdAt: DateTime!
+    updatedAt: DateTime!
 }
 
 type Post {
@@ -76,6 +78,8 @@ type Post {
     published: Boolean!
     author: User!
     comments:[Comment!]
+    createdAt: DateTime!
+    updatedAt: DateTime!
 }
 
 type Comment {
@@ -83,6 +87,8 @@ type Comment {
     text: String!
     author: User!
     post: Post!
+    createdAt: DateTime!
+    updatedAt: DateTime!
 }
 
 enum MutationType {
