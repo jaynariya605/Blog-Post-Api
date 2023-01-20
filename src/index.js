@@ -98,6 +98,7 @@ startServer().then(()=>{
       });
 })
 
+module.exports = httpServer
 
 
 // startStandaloneServer(server, {

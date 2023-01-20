@@ -80,8 +80,8 @@ const regularDirname = hasDirname && fs.existsSync(path.join(__dirname, 'schema.
 
 // if the client has been bundled, we need to look for the folders
 const foundDirname = !regularDirname && findSync(process.cwd(), [
-    "..\\src\\generated\\client",
     "src\\generated\\client",
+    "generated\\client",
 ], ['d'], ['d'], 1)[0]
 
 const dirname = regularDirname || foundDirname || __dirname
@@ -183,7 +183,8 @@ const config = {
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": "..\\..\\..\\.env"
+    "rootEnvPath": "..\\..\\..\\.env",
+    "schemaEnvPath": "..\\..\\..\\.env"
   },
   "relativePath": "..\\..\\..\\prisma",
   "clientVersion": "4.8.1",
@@ -212,9 +213,9 @@ exports.PrismaClient = PrismaClient
 Object.assign(exports, Prisma)
 
 path.join(__dirname, "query-engine-windows");
-path.join(process.cwd(), "..\\src\\generated\\client\\query-engine-windows")
+path.join(process.cwd(), "src\\generated\\client\\query-engine-windows")
 
 path.join(__dirname, "query-engine-debian-openssl-3.0.x");
-path.join(process.cwd(), "..\\src\\generated\\client\\query-engine-debian-openssl-3.0.x")
+path.join(process.cwd(), "src\\generated\\client\\query-engine-debian-openssl-3.0.x")
 path.join(__dirname, "schema.prisma");
-path.join(process.cwd(), "..\\src\\generated\\client\\schema.prisma")
+path.join(process.cwd(), "src\\generated\\client\\schema.prisma")
