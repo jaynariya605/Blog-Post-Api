@@ -47,6 +47,7 @@ input CreteUserInput {
     email: String!
     password: String! 
     age: Int
+    image: String
 }
 
 input CretePostInput {
@@ -65,6 +66,7 @@ type User {
     name: String!
     email: String
     age: Int
+    image: String
     posts: [Post!]!
     comments: [Comment!]!
     createdAt: String!

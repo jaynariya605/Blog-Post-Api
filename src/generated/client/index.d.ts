@@ -22,6 +22,7 @@ export type User = {
   name: string
   age: number | null
   id: string
+  image: string | null
   createdAt: Date
   updatedAt: Date
 }
@@ -972,6 +973,7 @@ export namespace Prisma {
     name: string | null
     age: number | null
     id: string | null
+    image: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -982,6 +984,7 @@ export namespace Prisma {
     name: string | null
     age: number | null
     id: string | null
+    image: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -992,6 +995,7 @@ export namespace Prisma {
     name: number
     age: number
     id: number
+    image: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -1012,6 +1016,7 @@ export namespace Prisma {
     name?: true
     age?: true
     id?: true
+    image?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -1022,6 +1027,7 @@ export namespace Prisma {
     name?: true
     age?: true
     id?: true
+    image?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -1032,6 +1038,7 @@ export namespace Prisma {
     name?: true
     age?: true
     id?: true
+    image?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -1135,6 +1142,7 @@ export namespace Prisma {
     name: string
     age: number | null
     id: string
+    image: string | null
     createdAt: Date
     updatedAt: Date
     _count: UserCountAggregateOutputType | null
@@ -1166,6 +1174,7 @@ export namespace Prisma {
     id?: boolean
     comments?: boolean | User$commentsArgs
     posts?: boolean | User$postsArgs
+    image?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     _count?: boolean | UserCountOutputTypeArgs
@@ -4142,6 +4151,7 @@ export namespace Prisma {
     name: 'name',
     age: 'age',
     id: 'id',
+    image: 'image',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -4165,6 +4175,7 @@ export namespace Prisma {
     id?: UuidFilter | string
     comments?: CommentListRelationFilter
     posts?: PostListRelationFilter
+    image?: StringNullableFilter | string | null
     createdAt?: DateTimeFilter | Date | string
     updatedAt?: DateTimeFilter | Date | string
   }
@@ -4177,6 +4188,7 @@ export namespace Prisma {
     id?: SortOrder
     comments?: CommentOrderByRelationAggregateInput
     posts?: PostOrderByRelationAggregateInput
+    image?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -4184,6 +4196,7 @@ export namespace Prisma {
   export type UserWhereUniqueInput = Prisma.AtLeast<{
     email?: string
     id?: string
+    image?: string
     AND?: Enumerable<UserWhereInput>
     OR?: Enumerable<UserWhereInput>
     NOT?: Enumerable<UserWhereInput>
@@ -4194,7 +4207,7 @@ export namespace Prisma {
     posts?: PostListRelationFilter
     createdAt?: DateTimeFilter | Date | string
     updatedAt?: DateTimeFilter | Date | string
-  }, "email" | "id">
+  }, "email" | "id" | "image">
 
   export type UserOrderByWithAggregationInput = {
     email?: SortOrder
@@ -4202,6 +4215,7 @@ export namespace Prisma {
     name?: SortOrder
     age?: SortOrder
     id?: SortOrder
+    image?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: UserCountOrderByAggregateInput
@@ -4220,6 +4234,7 @@ export namespace Prisma {
     name?: StringWithAggregatesFilter | string
     age?: IntNullableWithAggregatesFilter | number | null
     id?: UuidWithAggregatesFilter | string
+    image?: StringNullableWithAggregatesFilter | string | null
     createdAt?: DateTimeWithAggregatesFilter | Date | string
     updatedAt?: DateTimeWithAggregatesFilter | Date | string
   }
@@ -4363,6 +4378,7 @@ export namespace Prisma {
     id?: string
     comments?: CommentCreateNestedManyWithoutAuthorInput
     posts?: PostCreateNestedManyWithoutAuthorInput
+    image?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -4375,6 +4391,7 @@ export namespace Prisma {
     id?: string
     comments?: CommentUncheckedCreateNestedManyWithoutAuthorInput
     posts?: PostUncheckedCreateNestedManyWithoutAuthorInput
+    image?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -4387,6 +4404,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     comments?: CommentUpdateManyWithoutAuthorNestedInput
     posts?: PostUpdateManyWithoutAuthorNestedInput
+    image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -4399,6 +4417,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     comments?: CommentUncheckedUpdateManyWithoutAuthorNestedInput
     posts?: PostUncheckedUpdateManyWithoutAuthorNestedInput
+    image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -4409,6 +4428,7 @@ export namespace Prisma {
     name: string
     age?: number | null
     id?: string
+    image?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -4419,6 +4439,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     age?: NullableIntFieldUpdateOperationsInput | number | null
     id?: StringFieldUpdateOperationsInput | string
+    image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -4429,6 +4450,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     age?: NullableIntFieldUpdateOperationsInput | number | null
     id?: StringFieldUpdateOperationsInput | string
+    image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -4617,6 +4639,21 @@ export namespace Prisma {
     none?: PostWhereInput
   }
 
+  export type StringNullableFilter = {
+    equals?: string | null
+    in?: Enumerable<string> | null
+    notIn?: Enumerable<string> | null
+    lt?: string
+    lte?: string
+    gt?: string
+    gte?: string
+    contains?: string
+    startsWith?: string
+    endsWith?: string
+    mode?: QueryMode
+    not?: NestedStringNullableFilter | string | null
+  }
+
   export type DateTimeFilter = {
     equals?: Date | string
     in?: Enumerable<Date> | Enumerable<string>
@@ -4642,6 +4679,7 @@ export namespace Prisma {
     name?: SortOrder
     age?: SortOrder
     id?: SortOrder
+    image?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -4656,6 +4694,7 @@ export namespace Prisma {
     name?: SortOrder
     age?: SortOrder
     id?: SortOrder
+    image?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -4666,6 +4705,7 @@ export namespace Prisma {
     name?: SortOrder
     age?: SortOrder
     id?: SortOrder
+    image?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -4721,6 +4761,24 @@ export namespace Prisma {
     _count?: NestedIntFilter
     _min?: NestedStringFilter
     _max?: NestedStringFilter
+  }
+
+  export type StringNullableWithAggregatesFilter = {
+    equals?: string | null
+    in?: Enumerable<string> | null
+    notIn?: Enumerable<string> | null
+    lt?: string
+    lte?: string
+    gt?: string
+    gte?: string
+    contains?: string
+    startsWith?: string
+    endsWith?: string
+    mode?: QueryMode
+    not?: NestedStringNullableWithAggregatesFilter | string | null
+    _count?: NestedIntNullableFilter
+    _min?: NestedStringNullableFilter
+    _max?: NestedStringNullableFilter
   }
 
   export type DateTimeWithAggregatesFilter = {
@@ -4885,6 +4943,10 @@ export namespace Prisma {
     deleteMany?: Enumerable<PostScalarWhereInput>
   }
 
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
+  }
+
   export type DateTimeFieldUpdateOperationsInput = {
     set?: Date | string
   }
@@ -5041,6 +5103,20 @@ export namespace Prisma {
     not?: NestedUuidFilter | string
   }
 
+  export type NestedStringNullableFilter = {
+    equals?: string | null
+    in?: Enumerable<string> | null
+    notIn?: Enumerable<string> | null
+    lt?: string
+    lte?: string
+    gt?: string
+    gte?: string
+    contains?: string
+    startsWith?: string
+    endsWith?: string
+    not?: NestedStringNullableFilter | string | null
+  }
+
   export type NestedDateTimeFilter = {
     equals?: Date | string
     in?: Enumerable<Date> | Enumerable<string>
@@ -5119,6 +5195,23 @@ export namespace Prisma {
     _count?: NestedIntFilter
     _min?: NestedStringFilter
     _max?: NestedStringFilter
+  }
+
+  export type NestedStringNullableWithAggregatesFilter = {
+    equals?: string | null
+    in?: Enumerable<string> | null
+    notIn?: Enumerable<string> | null
+    lt?: string
+    lte?: string
+    gt?: string
+    gte?: string
+    contains?: string
+    startsWith?: string
+    endsWith?: string
+    not?: NestedStringNullableWithAggregatesFilter | string | null
+    _count?: NestedIntNullableFilter
+    _min?: NestedStringNullableFilter
+    _max?: NestedStringNullableFilter
   }
 
   export type NestedDateTimeWithAggregatesFilter = {
@@ -5294,6 +5387,7 @@ export namespace Prisma {
     age?: number | null
     id?: string
     comments?: CommentCreateNestedManyWithoutAuthorInput
+    image?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -5305,6 +5399,7 @@ export namespace Prisma {
     age?: number | null
     id?: string
     comments?: CommentUncheckedCreateNestedManyWithoutAuthorInput
+    image?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -5348,6 +5443,7 @@ export namespace Prisma {
     age?: NullableIntFieldUpdateOperationsInput | number | null
     id?: StringFieldUpdateOperationsInput | string
     comments?: CommentUpdateManyWithoutAuthorNestedInput
+    image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -5359,6 +5455,7 @@ export namespace Prisma {
     age?: NullableIntFieldUpdateOperationsInput | number | null
     id?: StringFieldUpdateOperationsInput | string
     comments?: CommentUncheckedUpdateManyWithoutAuthorNestedInput
+    image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -5370,6 +5467,7 @@ export namespace Prisma {
     age?: number | null
     id?: string
     posts?: PostCreateNestedManyWithoutAuthorInput
+    image?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -5381,6 +5479,7 @@ export namespace Prisma {
     age?: number | null
     id?: string
     posts?: PostUncheckedCreateNestedManyWithoutAuthorInput
+    image?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -5433,6 +5532,7 @@ export namespace Prisma {
     age?: NullableIntFieldUpdateOperationsInput | number | null
     id?: StringFieldUpdateOperationsInput | string
     posts?: PostUpdateManyWithoutAuthorNestedInput
+    image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -5444,6 +5544,7 @@ export namespace Prisma {
     age?: NullableIntFieldUpdateOperationsInput | number | null
     id?: StringFieldUpdateOperationsInput | string
     posts?: PostUncheckedUpdateManyWithoutAuthorNestedInput
+    image?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
